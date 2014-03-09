@@ -17,6 +17,12 @@ class FirstscrapyPipeline(object):
         # try insert to mysql db
         try:
             self.curs.execute("insert into bool values(%s,%s,%s,%s,%s,%s)", item)
+            # commit the update
+            self.con.commit()
+            # close the curs
+            self.curs.close()
+            # close the connect
+            self.con.close()
         except:
             print "insert to mysql has a error!"
 
