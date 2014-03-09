@@ -21,7 +21,7 @@ class FirstscrapyPipeline(object):
         dbdata["author"] = item['author']
         dbdata["desc"] = item['desc']
         dbdata["belong"] = item['belong']
-
+        # try and except
         try:
             self.db.Book.insert(dbdata)
         except:

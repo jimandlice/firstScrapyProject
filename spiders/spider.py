@@ -27,28 +27,28 @@ class firstScrapy(CrawlSpider):
         item['author'] = ""
         item['desc'] = ""
         item['belong'] = ""
-
+        # get name
         strlist = x.select("//h1/@title").extract()
         if len(strlist) > 0:
             item["name"] = strlist[0]
-
+        # get price
         strlist = x.select("//div[@class='doc-info-price']//span[@class='txt-now-price-num']/text()").extract()
         if len(strlist) > 0:
             item["price"] = strlist[0]
-
+        # get author publication
         strlist = x.select("//ul[@class='doc-info-org']/li/text()").extract()
-
+        # get list length
         count = len(strlist)
         if count > 0:
             item["author"] = strlist[0]
         if count > 1:
             item['publication'] = strlist[1]
-
+        # get describle
         strlist = x.select("//div[@class='des-content']/p/text()").extract()
         if len(strlist) > 0:
             item["desc"] = strlist[0]
+        # get belong
         strlist = x.select("//li/a[contains(@data-logsend, 'send')]/text()").extract()
-
         belong = ""
         index = 0
         for str in strlist:
@@ -60,5 +60,6 @@ class firstScrapy(CrawlSpider):
             else:
                 belong += "->"+str
         item["belong"] = belong
-        self.log(item["url"]+"   "+item["name"])
+        #self.log(item["url"]+"   "+item["name"])
+        # get item to pipelines
         return item
