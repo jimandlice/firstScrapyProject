@@ -18,7 +18,7 @@ class firstScrapy(CrawlSpider):
     def myparse(self, response):
         x = HtmlXPathSelector(response)
         item = FirstscrapyItem()
-
+        # get url
         item["url"] = response.url
         item['name'] = ""
         item['price'] = ""
@@ -34,7 +34,7 @@ class firstScrapy(CrawlSpider):
         strlist = x.select("//div[@class='doc-info-price']//span[@class='txt-now-price-num']/text()").extract()
         if len(strlist) > 0:
             item["price"] = strlist[0]
-        # get author publication
+        # get author and publication
         strlist = x.select("//ul[@class='doc-info-org']/li/text()").extract()
         # get list length
         count = len(strlist)
@@ -59,6 +59,5 @@ class firstScrapy(CrawlSpider):
             else:
                 belong += "->"+str
         item["belong"] = belong
-        #self.log(item["url"]+"   "+item["name"])
         # get item to pipelines
         return item
