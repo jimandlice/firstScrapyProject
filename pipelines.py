@@ -13,12 +13,10 @@ class FirstscrapyPipeline(object):
         if item["url"] == "":
             return item
 
-        dbdata = {"name":"", "url":"", "price":"", "memprice":"", "press":"", "publication":"", "author":"", "desc":"", "belong":""}
+        dbdata = {"name":"", "url":"", "price":"", "publication":"", "author":"", "desc":"", "belong":""}
         dbdata["name"] = item['name']
         dbdata["url"] = item['url']
         dbdata["price"] = item['price']
-        dbdata["memprice"] = item['memprice']
-        dbdata["press"] = item['press']
         dbdata["publication"] = item['publication']
         dbdata["author"] = item['author']
         dbdata["desc"] = item['desc']

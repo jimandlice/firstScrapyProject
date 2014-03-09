@@ -22,7 +22,6 @@ class firstScrapy(CrawlSpider):
         item["url"] = response.url
         item['name'] = ""
         item['price'] = ""
-        item['memprice'] = ""
         item['press'] = ""
         item['publication'] = ""
         item['author'] = ""
@@ -37,10 +36,6 @@ class firstScrapy(CrawlSpider):
         if len(strlist) > 0:
             item["price"] = strlist[0]
 
-        strlist = x.select("/div[@class='privilege-price']/span[contains(@style, 'color:')]/text()").extract()
-        if len(strlist) > 0:
-            item["memprice"] = strlist[0]
-
         strlist = x.select("//ul[@class='doc-info-org']/li/text()").extract()
 
         count = len(strlist)
@@ -48,8 +43,6 @@ class firstScrapy(CrawlSpider):
             item["author"] = strlist[0]
         if count > 1:
             item['publication'] = strlist[1]
-        if count > 2:
-            item['press'] = strlist[2]
 
         strlist = x.select("//div[@class='des-content']/p/text()").extract()
         if len(strlist) > 0:
