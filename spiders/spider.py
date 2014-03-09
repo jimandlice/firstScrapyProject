@@ -22,7 +22,6 @@ class firstScrapy(CrawlSpider):
         item["url"] = response.url
         item['name'] = ""
         item['price'] = ""
-        item['press'] = ""
         item['publication'] = ""
         item['author'] = ""
         item['desc'] = ""

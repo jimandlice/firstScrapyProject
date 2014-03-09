@@ -15,4 +15,3 @@ class FirstscrapyItem(Item):
     author = Field()
     desc = Field()
     belong = Field()
-    pass
