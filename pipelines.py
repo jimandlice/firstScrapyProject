@@ -16,7 +16,8 @@ class FirstscrapyPipeline(object):
             return item
         # try insert to mysql db
         try:
-            self.curs.execute("insert into book values(%s,%s,%s,%s,%s,%s,%s)", item)
+            self.curs.execute("insert into book values(%s,%s,%s,%s,%s,%s,%s)", item["url"], item["name"],
+                              item["price"], item["publication"], item["author"], item["desc"], item["belong"])
             # commit the update
             self.con.commit()
             # close the curs
