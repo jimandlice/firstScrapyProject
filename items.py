@@ -6,4 +6,5 @@
 from scrapy.item import Item, Field
 
 class FirstscrapyItem(Item):
-    pass
+    title = Field()
+    link = Field()
