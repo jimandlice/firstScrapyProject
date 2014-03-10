@@ -6,12 +6,4 @@
 from scrapy.item import Item, Field
 
 class FirstscrapyItem(Item):
-    # define the fields for your item here like:
-    # name = Field()
-    url = Field()
-    name = Field()
-    price = Field()
-    publication = Field()
-    author = Field()
-    desc = Field()
-    belong = Field()
+    pass
