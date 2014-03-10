@@ -13,10 +13,10 @@ class firstScrapy(CrawlSpider):
     name = "firstScrapy"
     allowed_domains = ["yuedu.baidu.com"]
     start_urls = ["http://yuedu.baidu.com/book/list/0?od=0&show=1&pn=0"]
-    rules = [Rule(SgmlLinkExtractor(allow=('/ebook/[^/]+fr=booklist')), callback='parse'),
+    rules = [Rule(SgmlLinkExtractor(allow=('/ebook/[^/]+fr=booklist')), callback='myparse'),
              Rule(SgmlLinkExtractor(allow=('/book/list/[^/]+pn=[^/]+', )), follow=True)]
 
-    def parse(self, response):
+    def myparse(self, response):
         x = HtmlXPathSelector(response)
         item = FirstscrapyItem()
 

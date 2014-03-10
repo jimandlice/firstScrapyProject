@@ -42,4 +42,4 @@ class FirstscrapyPipeline(object):
                tx.execute('insert into book values (%s, %s)', (item['title'][i], item['link'][i]))
         """
         sql = "insert into book values (%s, %s)"
-        tx.exeucte(sql, (str(item["title"]), str(item["link"])))
+        tx.execute(sql, (item["title"], item["link"]))

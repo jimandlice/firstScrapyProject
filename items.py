@@ -6,5 +6,5 @@
 from scrapy.item import Item, Field
 
 class FirstscrapyItem(Item):
-    title = Field()
-    link = Field()
+    title = Field(serializer=str)
+    link = Field(serializer=str)
